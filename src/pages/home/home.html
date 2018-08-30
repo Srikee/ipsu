@@ -1,18 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar color="{{ ipsu.style }}">
+        <ion-buttons start>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <img class="brand" src="assets/imgs/brand1.png" alt="iPSU Pattani">
+        </ion-title>
+    </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+    <div class="banner">
+        <ion-slides pager>
+            <ion-slide *ngFor="let item of banner" [ngClass]="item.fixClass" [ngStyle]="{'background-image': 'url('+item.urlImage+'), url('+ipsu.defaultUserBanner+')'}">
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div class="news">
+        <div class="news-title">
+            <ion-icon name="ios-book-outline"></ion-icon> {{ 'home.news'| translate }}</div>
+        <div class="news-body">
+            <div class="news-items" *ngFor="let item of news">
+                <div class="news-items-icon">
+                    <img src="assets/imgs/icon-news1.gif">
+                </div>
+                <div class="news-items-text">{{ item.news_text }}</div>
+            </div>
+        </div>
+        <div class="news-more">
+            <a (click)="openNews()">{{ 'home.readmore'| translate }}</a>
+        </div>
+    </div>
 </ion-content>

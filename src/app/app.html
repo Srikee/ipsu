@@ -1,19 +1,24 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
-
+<ion-menu [content]="content" side="{{ platform.is('ios') ? 'left' : 'right' }}" id="authenticated">
+    <ion-header>
+        <ion-toolbar color="{{ ipsu.style }}">
+            <ion-title>{{ 'menu.title'| translate }}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon name="{{ p.icon }}" item-start></ion-icon>
+                 {{ p.title| translate }}
+            </button>
+            <button *ngIf="ipsu.auth==null" menuClose ion-item (click)="login()">
+                <ion-icon name="log-in" item-start></ion-icon>
+                {{ 'menu.login'| translate }}
+            </button>
+            <button *ngIf="ipsu.auth!=null" menuClose ion-item (click)="logout()">
+                <ion-icon name="log-out" item-start></ion-icon>
+                {{ 'menu.logout'| translate }}
+            </button>
+        </ion-list>
+    </ion-content>
 </ion-menu>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar color="{{ ipsu.style }}">
+        <ion-buttons start>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{ 'message.news'| translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <ion-icon name="trash"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div *ngIf="ipsu.auth!=null">
+        <ion-list>
+            <ion-item-sliding>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/logo.png">
+                    </ion-avatar>
+                    <h2>Venkman</h2>
+                    <p>Back off man, I'm a scientist.</p>
+                </ion-item>
+                <ion-item-options>
+                    <button ion-button color="secondary" icon-start>
+                        <ion-icon name="eye"></ion-icon>
+                        เปิดดู
+                    </button>
+                    <button ion-button color="danger" icon-start>
+                        <ion-icon name="trash"></ion-icon>
+                        ลบ
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+            <ion-item-sliding>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/logo.png">
+                    </ion-avatar>
+                    <h2>Venkman</h2>
+                    <p>Back off man, I'm a scientist.</p>
+                </ion-item>
+                <ion-item-options>
+                    <button ion-button color="secondary" icon-start>
+                        <ion-icon name="eye"></ion-icon>
+                        เปิดดู
+                    </button>
+                    <button ion-button color="danger" icon-start>
+                        <ion-icon name="trash"></ion-icon>
+                        ลบ
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>
+</ion-content>

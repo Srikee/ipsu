@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-navbar color="{{ ipsu.style }}">
+        <ion-buttons start>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{ 'user.title'| translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="ipsu.auth!=null">
+        <div class="profile" [ngClass]="user.bannerFixSizeClass" [ngStyle]="{'background-image': 'url('+user.bannerUrl+'), url('+ipsu.defaultUserBanner+')'}">
+            <div class="profile-img" [ngClass]="user.imageFixSizeClass" [ngStyle]="{'background-image': 'url('+user.imageUrl+'), url('+ipsu.defaultUserImage+')'}">
+            </div>
+            <div class="profile-text">
+                <div class="profile-username">{{ user.username|isNull:'Anonymous' }}</div>
+                <div class="profile-fullname">{{ user.user_name|isNull:'User' }} {{ user.user_lname|isNull:'Demo' }}</div>
+                <div class="profile-major">{{ 'all.fac'| translate }} {{ user.fac_name|isNull:'No Faculty' }}</div>
+                <div class="profile-fac">{{ 'all.major'| translate }} {{ user.major_name|isNull:'No Major' }}</div>
+            </div>
+        </div>
+        <!--
+        <img class="thumbnail-image" src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/21430162_1576438502408564_1761980803647322736_n.jpg?_nc_cat=0&oh=7ed66c1c684dcfda2931dd5b9c6e4066&oe=5BC7001F" onError="this.src='assets/imgs/ipsu.png';"
+            alt="..." />-->
+        <div class="menu">
+            <ion-row>
+                <ion-col col-4 class="menu-item">
+                    <a (click)="setFacebook()">
+                        <div class="menu-img" style="background-color: #ff9b9b;">
+                            <ion-icon name="school"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu1'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #00e4ad;">
+                            <ion-icon name="body"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu2'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #1cef00;">
+                            <ion-icon name="alarm"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu3'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #eab500;">
+                            <ion-icon name="analytics"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu4'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #357940;">
+                            <ion-icon name="basket"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu5'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #353e79;">
+                            <ion-icon name="basket"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu6'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #793535;">
+                            <ion-icon name="basket"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu7'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #793568;">
+                            <ion-icon name="basket"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu8'| translate }}</div>
+                    </a>
+                </ion-col>
+                <ion-col col-4 class="menu-item">
+                    <a>
+                        <div class="menu-img" style="background-color: #ec4a00;">
+                            <ion-icon name="basket"></ion-icon>
+                        </div>
+                        <div class="menu-text">{{ 'user.menu9'| translate }}</div>
+                    </a>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+</ion-content>

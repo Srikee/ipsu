@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons end>
+            <button ion-button (click)="dismiss(false)">
+                <span ion-text color="primary">{{ 'all.cancel'| translate }}</span>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'lockscreen-setup.title'| translate }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-grid class="btn-code-body">
+        <div class="show-code">{{ code }}</div>
+        <ion-row>
+            <ion-col><a class="item" (click)="set(1)">1</a></ion-col>
+            <ion-col><a class="item" (click)="set(2)">2</a></ion-col>
+            <ion-col><a class="item" (click)="set(3)">3</a></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col><a class="item" (click)="set(4)">4</a></ion-col>
+            <ion-col><a class="item" (click)="set(5)">5</a></ion-col>
+            <ion-col><a class="item" (click)="set(6)">6</a></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col><a class="item" (click)="set(7)">7</a></ion-col>
+            <ion-col><a class="item" (click)="set(8)">8</a></ion-col>
+            <ion-col><a class="item" (click)="set(9)">9</a></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col><a class="clear" (click)="clear()">{{ 'lockscreen-setup.ac'| translate }}</a></ion-col>
+            <ion-col><a class="item" (click)="set(0)">0</a></ion-col>
+            <ion-col><a class="del" (click)="del()">{{ 'lockscreen-setup.del'| translate }}</a></ion-col>
+        </ion-row>
+        <button ion-button full large (click)="save()">{{ 'lockscreen-setup.save'| translate }}</button>
+    </ion-grid>
+</ion-content>

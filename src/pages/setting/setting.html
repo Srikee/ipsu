@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="{{ ipsu.style }}">
+        <ion-buttons start>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{ 'setting.title'| translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-icon name="color-palette" item-start></ion-icon>
+            <ion-label>{{ 'setting.color'| translate }}</ion-label>
+            <ion-select [(ngModel)]="style" (ionCancel)="cancelStyle()" (ionChange)="okStyle()">
+                <ion-option value="primary" (ionSelect)="selectStyle('primary')">Primary</ion-option>
+                <ion-option value="secondary" (ionSelect)="selectStyle('secondary')">Secondary</ion-option>
+                <ion-option value="danger" (ionSelect)="selectStyle('danger')">Danger</ion-option>
+                <ion-option value="light" (ionSelect)="selectStyle('light')">Light</ion-option>
+                <ion-option value="dark" (ionSelect)="selectStyle('dark')">Dark</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="globe" item-start></ion-icon>
+            <ion-label>{{ 'setting.language'| translate }}</ion-label>
+            <ion-select [(ngModel)]="language" (ionCancel)="cancelLanguage()" (ionChange)="okLanguage()">
+                <ion-option value="en" (ionSelect)="selectLanguage('en')">English</ion-option>
+                <ion-option value="th" (ionSelect)="selectLanguage('th')">ไทย</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item *ngIf="ipsu.auth!=null">
+            <ion-icon name="lock" item-start></ion-icon>
+            <ion-label>{{ 'setting.lockscreen'| translate }}</ion-label>
+            <ion-toggle [(ngModel)]="lockscreen" (ngModelChange)="changeLockscreen()"></ion-toggle>
+        </ion-item>
+        <ion-item *ngIf="ipsu.auth!=null" (click)="logout()">
+            <ion-icon name="log-out" item-start></ion-icon>
+            <ion-label>{{ 'menu.logout'| translate }}</ion-label>
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>

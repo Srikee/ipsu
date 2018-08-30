@@ -1,0 +1,15 @@
+page-loading {
+    .my-content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        height: 100%;
+        background-color: #eee;
+    }
+    .my-img {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+}
